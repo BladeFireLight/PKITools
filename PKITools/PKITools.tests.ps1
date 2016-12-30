@@ -104,7 +104,7 @@ InModuleScope 'PKITools' {
             }
         }
     }
-    Describe 'get-CaLocationString' {
+    Describe 'Get-CaLocationString' {
         Mock Get-Domain {
             $properties = @{
                 'Name' = 'company.pri'

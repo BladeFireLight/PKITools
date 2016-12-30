@@ -28,7 +28,7 @@
 
         .EXAMPLE
         Get-IssuedCertificate -ExpireInDays -7
-        Gets all Issued Certificates taht Expired last week
+        Gets all Issued Certificates that Expired last week
 
         .EXAMPLE
         Get-IssuedCertificate -CAlocation CA1\MyCA

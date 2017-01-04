@@ -112,8 +112,8 @@
         #region filter expiration Date
         $index = $CaView.GetColumnIndex($false, 'Certificate Expiration Date')
         $now = Get-Date
-        $expirationdate = $now.AddDays($duedays)
-        if ($duedays -gt 0)
+        $expirationdate = $now.AddDays($ExpireInDays)
+        if ($ExpireInDays -gt 0)
         { 
             $CaView.SetRestriction($index,$CVR_SEEK_GT,0,$now)
             $CaView.SetRestriction($index,$CVR_SEEK_LT,0,$expirationdate)

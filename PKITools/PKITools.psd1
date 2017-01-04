@@ -12,7 +12,7 @@
  RootModule = 'PKITools.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0'
+ModuleVersion = '1.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -114,7 +114,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        ReleaseNotes = 'Inital Version, Can get Certificate Templas and Issued Certificates from ADCS. Usfull for getting Auto Enrolled Certificats for DSC'
+        ReleaseNotes = '1.1 Fixed show stoper bug; Can get Certificate Templas and Issued Certificates from ADCS. Usfull for getting Auto Enrolled Certificats for DSC'
 
     } # End of PSData hashtable
 

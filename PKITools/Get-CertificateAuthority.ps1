@@ -28,11 +28,11 @@
 
         # Domain to Search
         [String]
-        $Domain = (Get-Domain -verbose).Name 
+        $Domain = (Get-Domain).Name 
     )
     Write-Verbose $Domain
     ## If the DN path does not exist error message set as valid object 
-    $CaEnrolmentServices = Get-ADPKIEnrollmentServers $Domain -Verbose
+    $CaEnrolmentServices = Get-ADPKIEnrollmentServers $Domain 
     $CAList = $CaEnrolmentServices.Children
 
     if($CAName)

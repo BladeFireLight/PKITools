@@ -30,7 +30,7 @@ CompanyName = 'BladeFireLight'
 Copyright = 'MIT Licence'
 
 # Description of the functionality provided by this module
-Description = 'Get certificates and Templates from Active Directory Certificate Service'
+Description = 'Get certificates and Templates from Active Directory Certificate Service. Can be used to save certificats for DSC'
 
 # Minimum version of the Windows PowerShell engine required by this module
 # PowerShellVersion = ''
@@ -102,10 +102,10 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-         Tags = @('Certificate')
+         Tags = @('Certificate', 'DSCCertificates', 'CertificateAuthority', 'ADCS')
 
         # A URL to the license for this module.
-         LicenseUri = 'https://raw.githubusercontent.com/BladeFireLight/PKITools/master/LICENSE'
+        LicenseUri = 'https://raw.githubusercontent.com/BladeFireLight/PKITools/master/LICENSE'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/BladeFireLight/PKITools'

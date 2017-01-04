@@ -13,7 +13,7 @@ Get-CertificateTemplateOID : Gets the OID of a specific template from Active Dir
 Get-IssuedCertificate : Gets Certificates issued by a Certificate Authority. Can be filtered by CommonName, Certificate Template or Days untill expire
 
 ## Why I created this
-I did not find anythign that could retrive certificates from a remote ADCS server and save them to a file. Or get a list of soon to expire Certificates
+Looking on PowerShellGallery.com, I did not find anythign that could retrive certificates from a remote ADCS server and save them to a file. Or get a list of soon to expire Certificates
 
 For example. to get all the certificates that will expire in the next two weeks from all CA's on the current Domain. 
 ~~~
@@ -27,5 +27,5 @@ foreach ($cert in $DSCCerts)
 {
     set-content -path "c:\certs\$($cert.'Issued Common Name').cer" -Value $cert.'Binary Certificate' -Encoding Ascii
 }
-
+~~~
 

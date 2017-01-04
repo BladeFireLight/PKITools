@@ -37,7 +37,7 @@ function Get-ADPKIEnrollmentServers
     $QueryDN = 'LDAP://CN=Enrollment Services,CN=Public Key Services,CN=Services,CN=Configuration,DC=' + $Domain -replace '\.', ',DC=' 
     Write-Verbose -Message "Querying [$QueryDN]"
     $result = [ADSI]$QueryDN
-    if (-not ($CaEnrolmentServices.Name)) 
+    if (-not ($result.Name)) 
     {
         Throw "Unable to find any Certificate Authority Enrollment Services Servers on domain : $Domain" 
     }

@@ -11,6 +11,7 @@ Get-ADCertificateTemplate : Gets the Active Directory object of Certificate temp
 Get-CertificateTemplateOID : Gets the OID of a specific template from Active Directory.
 
 Get-IssuedCertificate : Gets Certificates issued by a Certificate Authority. Can be filtered by CommonName, Certificate Template or Days untill expire
+NOTE: Due to required COM objects. Get-IssuedCertificate only works on Desktop Operating system, Server with Desktop, or Server Core with Active Directory Certificate Services installed.
 
 ## Why I created this
 Looking on PowerShellGallery.com, I did not find anythign that could retrive certificates from a remote ADCS server and save them to a file. Or get a list of soon to expire Certificates

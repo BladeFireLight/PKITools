@@ -108,7 +108,7 @@
         }
         catch 
         {
-            throw 'Unable to create Certificate Authority View. Use -ComputerName targeting Server with ADSC Roll Installed. Ex. Get-IssuedCertificate  -ComputerName (Get-CertificatAuthority)[0].dnshostname'
+            throw "Unable to create Certificate Authority View. $ENV:COMPUTERNAME Not not have ADSC Installed"
         }
         $null = $CaView.OpenConnection($using:Location)
         $CaView.SetResultColumnCount($using:Properties.Count)

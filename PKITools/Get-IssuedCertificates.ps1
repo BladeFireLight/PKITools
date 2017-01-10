@@ -89,35 +89,12 @@
         [String]
         $CommonName,
 
-        # Computer to run command against. Must Server with ADSC installed, Not required if running on Client OS or Server with desktop.
-        [AllowNull()]
-        [string]
-        $ComputerName,
-
         # Credential to with permissions to query ADSC
         [AllowNull()]
         [System.Management.Automation.Credential()][PSCredential]
         $Credential
 
     ) 
-
-    #region Validate
-    if ((-not ($ComputerName)) -or ($ComputerName -like 'localhost') -or ($ComputerName -like $env:COMPUTERNAME ) )
-    {
-        try 
-        {
-            New-Object -ComObject CertificateAuthority.View
-        }
-        catch 
-        {
-            throw 'Unable to create Certificate Authority View. Use -ComputerName targeting Server with ADSC Roll Installed. Ex. Get-IssuedCertificate  -ComputerName (Get-CertificatAuthority)[0].dnshostname'
-        }
-    }
- #   if ($ComputerName) { 
- #       if (($CAlocation | measure ) -gt 1) {
- #           
- #       } 
- #    }
 
     
 
@@ -216,29 +193,21 @@
 
             $Cert
         }
+        #endregion
     }
     
     foreach ($using:Location in $CAlocation) 
     {
+        $ComputerName = $using:Location -split '\\' | Select-Object -First 1
+        
         $Params = @{
             'ScriptBlock' = $ScriptBlock
+            'ComputerName' = $ComputerName
         }
         if ($Credential) 
         {
             $Params.Add('Credential',$Credential)
         }
-        if (($ComputerName) -and  ( $ComputerName -notlike 'localhost') -and ($ComputerName -notlike $env:COMPUTERNAME ) ) 
-        {
-            $Params.Add('ComputerName',$ComputerName) 
-            ## Only invoke command on remote computer
-            Invoke-Command @Params
-        }
-        else
-        {
-            ## Use job to allow $using: in scriptblock ($using: not allowd in Invoke-Command localy, but required remotely)
-            Start-Job @Params |
-            Wait-Job |
-            Receive-Job
-        }
+        Invoke-Command @Params
     }
 }

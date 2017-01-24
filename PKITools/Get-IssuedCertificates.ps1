@@ -196,9 +196,9 @@
         #endregion
     }
     
-    foreach ($using:Location in $CAlocation) 
+    foreach ($Location in $CAlocation) 
     {
-        $ComputerName = $using:Location -split '\\' | Select-Object -First 1
+        $ComputerName = $Location -split '\\' | Select-Object -First 1
         
         $Params = @{
             'ScriptBlock' = $ScriptBlock
